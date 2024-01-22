@@ -1,0 +1,199 @@
+# Listas
+
+# Metodos de una lista
+
+lista = [1, 45, 86, 47]
+compra_del_super = ["salami", "presidente", "mondongo"]
+
+# Eliminar todos lo elementos de la lista
+# lista.clear()
+
+# Devuelve una copia de la lista
+# lista.copy()
+
+# añade un tantos elemntos como parametros a la lista
+# lista.extend()
+
+# Añade un nuevo elemento al final de la lista
+# lista.append()
+
+# Devuelve el numero de elemntos de la lista
+# lista.count()
+
+# Devuelve el indice (posicio) de un elemento
+# lista.index()
+
+# Elimina el elemnto en la posicion indicada (o el ultimo)
+# lista.pop()
+
+# Elimina la primera ocurrencia del elemento en la lista
+# lista.remove()
+
+# Ordena la lista
+# lista.sort()
+
+# Devuelve la lista en orden inverso
+# lista.reverse()
+
+
+#EJERCICIO NO.1
+
+print("*** EJERCICIO NO. 1 ***", "\n")
+# Crear una lista llamada datos_Antonio_Torres que almacena los valores "Antonio", "Torres", "Calle", "Alcala", 690, "28022", 24, "Septiembre", 1978
+datos_Antonio_Torres = ["Antonio", "Torres", "Calle", "Alcala", 690, "28022", 24, "Septiembre", 1978]
+
+# Mostrar en pantalla los valores almacenados en la lsita datos_Antonio_Torres
+print("Lista original:",datos_Antonio_Torres, "\n")
+
+# Crear una variable llamada nacimiento y asignarle el valor almacenado en la novena posicion de la lista
+nacimiento = datos_Antonio_Torres[8]
+print("Variable nacimiento:",nacimiento, "\n")
+
+# Añadir el valor "Ingeniero" al final de la lista
+datos_Antonio_Torres.append("Ingeniero")
+print("Lista luego de insertar Ingeniero: ",datos_Antonio_Torres, "\n")
+
+# Insertar el valor "Madrid" entre los valores 690 y "28022" de la lista
+datos_Antonio_Torres.insert(5, "Madrid")
+
+# Mostrar en pantalla los elementos almcenados en la lista datos_Antonio_Torres
+print("Lista luego de insertar Madrid:",datos_Antonio_Torres, "\n")
+
+# Asignarle el ultimo valor de la lista a una nueva variable formacion y elimarlo de la lista
+formacion = datos_Antonio_Torres[10]
+datos_Antonio_Torres.pop()
+# alternativa formacion = datos_Antonio_Torres.pop()
+
+print("Variable formacion:",formacion,"\n")
+print("Lista luego de eliminar el ultimo elemento: ",datos_Antonio_Torres, "\n")
+
+# Diccionarios
+
+# Devuelve la copia de un diccionario
+# diccionario.copy()
+
+# Elimina todos los elementos del diccionario
+# diccionario.clear()
+
+# Devuelve una lista que contiene una tupla por cada key-value
+# diccionario.items()
+
+# Devuelve una lista que contiene todas las keys
+# diccionario.keys
+
+# Devuelve una lista que contiene todas las values
+# diccionario.values
+
+# Actualiza un diccionario con los key-value indicados
+# diccionario.update()
+
+# Devuelve el valor de una key, tomando el valor por defecto en caso de que no este definido
+# setdefault(key, default_value)
+
+carro = {
+    "marca": "Toyota",
+    "modelo": "Corolla",
+    "año":1994
+
+}
+
+print(carro)
+
+carro.update({
+    "carrito":"Publico"
+})
+
+print(carro)
+
+# EJERCICIO NO. 2
+
+print("*** EJERCICIO NO. 2 ***", "\n")
+
+# Crear un diccionario llaamado usuario que almacene los pares clave-valor "nombre": "Antonio", "apellido": "Torres", "vía": "Calle", "nombre via": "Alcala", "numero": "690", "cp": "28022", "dia_nacimiento":24, "mes_nacimiento": "Septiembre", "anyo_nacimiento":1978
+
+usuario = {"nombre":"Antonio", "apellido":"Torres", "vía":"Calle", "nombre via":"Alcala", "numero":"690", "cp":"28022", "dia_nacimiento":24, "mes_nacimiento":"Septiembre", "anyo_nacimiento":1978}
+
+# Mostrar en pantalla los valores almacenados en el diccionario usuario
+
+print("Diccinario usuario: ",usuario, "\n")
+
+# Crear una variablle llamada fecha_nacimiento y asignarle la concatenacion de los valores almacenado en las keys "anyo_nacimiento", "mes_nacimiento", "dia_nacimiento"
+
+fecha_nacimiento = str(usuario["dia_nacimiento"]) + " de " + str(usuario["mes_nacimiento"]) + " de " + str(usuario["anyo_nacimiento"])
+
+print("Variable fecha de nacimiento: ", fecha_nacimiento,  "\n")
+
+# Añadir un nuevo key-value con key "formacion" y valor "Ingeniero"
+usuario.update({"formacion":"Ingeniero"})
+
+# Mostrar en pantalla los valores almacenados en el diccionario usuario
+print("Diccionario usuario actualizado :",usuario, "\n")
+
+
+# Tarea 
+
+import sys, os
+
+os.system("cls")
+
+print("*** TAREA ***")
+
+print("Pizza a tu gusto", "\n")
+
+pizza = {"Margarita":15,"Pepperoni":20, "Doble queso":20, "Maíz":18, "Jamón":18, "Pollo":22}
+
+def Mostrar_menu():
+    print(pizza, "\n")
+
+def Crear_pizza():
+    
+    ingredientes = []
+
+    while True:
+        try:
+            cantidad = int(input("¿Cuántos ingredientes deseas agregar a su pizza? (se le cobrará 5 euros por ingrediente seleccionado) "))
+
+            for x in range(cantidad):
+                ingrediente = input("Digite su ingrediente: ")
+                ingredientes.append(ingrediente)
+
+            precio = (cantidad * 5) + 10
+
+            print("El total de su pizza es de ", precio," euros")
+
+            nueva_pizza = input("Por favor ponga un nombre para su pizza: ")
+
+            print("Listo! Hemos agregado su pizza ", nueva_pizza, " al menú, puede consultarlo en la opción de Mostrar Menú", "\n" )
+
+            pizza.update({nueva_pizza:precio})
+            break
+
+        except:
+             print("Seleccione un número del 1 al 9, (estamos hablando de cantidad ¿¿¿No te parece extraño introducir letras???)")
+
+
+def salir():
+    print("Pue' bye")
+    sys.exit()
+
+while True:
+    
+    print("1. Mostrar Menú de pizzas", "\n")
+    print("2. Crear tu propia pizza", "\n")
+    print("3. No tengo ganas de pizza", "\n")
+
+    opcion = input("Escoge una de las opciones que deseas realizar: ")
+
+    if opcion == "1":
+        Mostrar_menu()  
+        
+    elif opcion == "2":
+        Crear_pizza()
+
+    elif opcion == "3":
+        salir()
+
+    else: 
+        print("La opción seleccionada no exixste. Fíjate bien!","\n")
+
+
